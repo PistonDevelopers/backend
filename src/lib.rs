@@ -2,9 +2,11 @@
 
 //! A macro library for backend agnostic design.
 
+/// Used to expand items into valid Rust AST.
 #[macro_export]
 macro_rules! backend_macro_items { ($($x:item)+) => ($($x)+) }
 
+/// Creates a `Backend` and a `OfBackend` trait with associated types.
 #[macro_export]
 macro_rules! backend {
     ($( $x:ident [$($w:tt)*] ),*) => {backend_macro_items! {
@@ -39,6 +41,7 @@ macro_rules! backend {
     }}
 }
 
+/// Implements `Backend` trait for a type.
 #[macro_export]
 macro_rules! backend_impl {
     ($x:ident {
