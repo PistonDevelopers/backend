@@ -1,0 +1,19 @@
+[package]
+name = "backend"
+version = "0.1.0"
+authors = [
+    "bvssvni <bvssvni@gmail.com>",
+]
+keywords = ["backend", "macro", "piston"]
+description = "A macro library for backend agnostic design"
+license = "MIT"
+repository = "https://github.com/PistonDevelopers/backend.git"
+homepage = "https://github.com/PistonDevelopers/backend"
+
+[lib]
+name = "backend"
+path = "./src/lib.rs"
+
+[dependencies]
+gfx = "0.6.4"
+gfx_device_gl = "0.4.0"
