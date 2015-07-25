@@ -1,8 +1,10 @@
 #[macro_use]
 extern crate backend;
 
-pub struct Homer;
-pub struct Marge;
+pub enum GrownUps {
+    Homer,
+    Marge
+}
 
 #[derive(Eq, PartialEq, Debug)]
 pub enum Kids {
@@ -32,8 +34,8 @@ backend!(
 );
 
 impl HasParents for Kids {
-    fn father(&self) -> Homer { Homer }
-    fn mother(&self) -> Marge { Marge }
+    fn father(&self) -> GrownUps { GrownUps::Homer }
+    fn mother(&self) -> GrownUps { GrownUps::Marge }
 }
 
 impl<T> HasChildren for T
@@ -46,8 +48,7 @@ impl<T> HasChildren for T
 
 backend_impl!(
     TheSimpsons {
-        Father = Homer,
-        Mother = Marge,
+        Father, Mother = GrownUps,
         Kids = Kids
     }
 );
@@ -56,8 +57,8 @@ backend_impl!(
 fn father<T: HasParents>(v: T) -> T::Father { v.father() }
 
 pub fn main() {
-    let homer: Homer = father(Kids::Bart);
-    let marge: Marge = Kids::Lisa.mother();
+    let homer = father(Kids::Bart);
+    let marge = Kids::Lisa.mother();
     assert_eq!(homer.coolest(), marge.coolest());
     assert_eq!(homer.cutest(), Kids::Maggie);   
 }
