@@ -45,7 +45,7 @@ macro_rules! backend {
 #[macro_export]
 macro_rules! backend_impl {
     ($x:ident {
-        $( $y:ident = $t:path ),*
+        $( $($y:ident),+ = $t:path ),*
     }) => {
 
         $(
@@ -55,7 +55,9 @@ macro_rules! backend_impl {
         )*
 
         impl Backend for $x {
+            $(
             $( type $y = $t; )*
+            )*
         }
 
     }
