@@ -12,7 +12,7 @@ macro_rules! backend {
     ($( $x:ident [$($w:tt)*] ),*) => {backend_macro_items! {
 
         /// Used to associate an item with a backend.
-        pub trait Associated: OfBackend {
+        pub trait Associated {
             /// The backend.
             type Backend: Backend;
         }
