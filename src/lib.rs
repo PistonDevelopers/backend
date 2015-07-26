@@ -29,7 +29,7 @@ macro_rules! backend {
         pub trait OfBackend: Associated {
             $(
             /// Associated type of backend.
-            type $x;
+            type $x: $($w)*;
             )*
         }
 
