@@ -26,7 +26,7 @@ macro_rules! backend {
         }
 
         /// Used to get other types associated with backend.
-        pub trait OfBackend {
+        pub trait OfBackend: Associated {
             $(
             /// Associated type of backend.
             type $x;
