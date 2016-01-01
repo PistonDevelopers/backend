@@ -15,5 +15,5 @@ name = "backend"
 path = "./src/lib.rs"
 
 [dependencies]
-gfx = "0.6.4"
-gfx_device_gl = "0.4.0"
+gfx = "0.8.1"
+gfx_device_gl = "0.7.0"

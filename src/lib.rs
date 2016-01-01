@@ -18,7 +18,7 @@ macro_rules! backend {
         }
 
         /// Implemented by backends.
-        pub trait Backend {
+        pub trait Backend: Sized {
             $(
             /// An associated item.
             type $x: Associated<Backend = Self> + $($w)*;
